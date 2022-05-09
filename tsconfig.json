@@ -1,6 +1,18 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "baseUrl": "./",
+    "paths": {
+      "@application/*": [
+        "./src/application/*"
+      ],
+      "@infraestructure/*": [
+        "./src/infraestructure/*"
+      ],
+      "@presentation/*": [
+        "./src/presentation/*"
+      ],
+    },
+    "target": "es2020",
     "lib": [
       "dom",
       "dom.iterable",
@@ -19,8 +31,5 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx"
-  },
-  "include": [
-    "src"
-  ]
+  }
 }
