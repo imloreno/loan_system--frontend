@@ -6,7 +6,7 @@ const theme = getTheme();
 
 const Client = styled.div`
   display: flex;
-  row-gap: 1rem;
+  row-gap: 0.4rem;
   flex-direction: column;
   justify-content: center;
   padding: 1rem;
@@ -14,7 +14,13 @@ const Client = styled.div`
   & .progress {
     display: flex;
     justify-content: space-between;
+    align-items: flex-end;
     margin-top: auto;
+
+    & .percentage {
+      font-size: 1.25rem;
+      font-weight: 800;
+    }
   }
 
   & ul {

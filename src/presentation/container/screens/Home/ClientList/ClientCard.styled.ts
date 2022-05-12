@@ -12,7 +12,7 @@ const ClientCard = styled.section`
 
   & header {
     display: flex;
-    row-gap: 1rem;
+    row-gap: 0.5rem;
     flex-direction: column;
     justify-content: space-between;
     padding: 1rem 2rem;
@@ -21,6 +21,12 @@ const ClientCard = styled.section`
 
     & h2 {
       margin: 0;
+      padding-top: 0.3rem;
+      font-size: 1.3rem;
+    }
+
+    & .subtitle {
+      margin-bottom: auto;
     }
   }
 `;

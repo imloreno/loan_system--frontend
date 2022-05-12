@@ -7,7 +7,8 @@ const GlobalStyle = createGlobalStyle`
 
 body{
    background-color: ${theme.background};
-   font-family: 'Lato';
+   font-family: 'Epilogue', sans-serif;
+   font-size: .9rem;
 }
 main{
    max-width: 65rem;

@@ -8,8 +8,10 @@ const ClientCard = (props: Props) => {
     <Container>
       <header>
         <h2>Lorenzo Santiago Saul Arias Villegas</h2>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-        <p>12/03/1998</p>
+        <p className="subtitle">
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+        </p>
+        <p className="date">12/03/1998</p>
       </header>
       <ClientItem />
       <div className="footer">Footer</div>

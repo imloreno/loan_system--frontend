@@ -2,8 +2,10 @@ import { getTheme } from "infraestructure/gateways/themeLocalStorage";
 import styled from "styled-components";
 import { BorderAbove } from "presentation/styles/mixins/Borders";
 
+const theme = getTheme();
+
 const StyledHeader = styled.header`
-  ${BorderAbove(getTheme())}
+  ${BorderAbove(theme)}
   position: sticky;
   top: 0;
   display: flex;
@@ -11,8 +13,7 @@ const StyledHeader = styled.header`
   align-items: center;
   padding: 1.2rem 2.2rem;
   height: fit-content;
-  background-color: rgba(255, 255, 255, 0.199);
-  backdrop-filter: blur(1rem);
+  background-color: ${theme.primary};
   z-index: 5;
 
   & .logo {
