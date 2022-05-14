@@ -11,15 +11,21 @@ const StyledHeader = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.2rem 2.2rem;
-  height: fit-content;
+  padding-right: 2.2rem;
+  padding-left: 2.2rem;
+  height: 5rem;
   background-color: ${theme.primary};
+  user-select: none;
   z-index: 5;
 
-  & .logo {
+  .logo {
     svg {
       fill: black;
     }
+  }
+
+  .burguer-menu {
+    display: none;
   }
 
   & nav {
@@ -28,6 +34,53 @@ const StyledHeader = styled.header`
       display: flex;
       gap: 1rem;
       padding: 0;
+    }
+  }
+
+  @media only screen and (max-width: 1000px) {
+    flex-direction: row-reverse;
+
+    nav {
+      transition: all 0.2s;
+      position: fixed;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      top: 5rem;
+      background-color: #c5cada;
+      backdrop-filter: blur(0.1rem);
+      padding: 2rem;
+      box-sizing: border-box;
+      opacity: 0;
+      pointer-events: none;
+
+      ul {
+        flex-direction: column;
+        li {
+          width: 100%;
+        }
+      }
+
+      &.open {
+        opacity: 1;
+        pointer-events: all;
+      }
+    }
+
+    .burguer-menu {
+      display: flex;
+      align-items: center;
+      position: relative;
+      padding: 0.5rem;
+      padding-left: 0;
+      height: fit-content;
+      font-size: 2rem;
+      cursor: pointer;
+    }
+
+    .logo {
+      display: none;
     }
   }
 `;
