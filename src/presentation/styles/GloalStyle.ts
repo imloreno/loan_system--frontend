@@ -19,6 +19,7 @@ main{
 }
 ul{
    margin: 0;
+   padding: 0;
 }
 li {
    list-style: none;
@@ -29,7 +30,10 @@ a{
 p{
    margin: 0;
 }
-
+h4{
+   margin-top: 0;
+   margin-bottom: 0;
+}
 `;
 
 export default GlobalStyle;

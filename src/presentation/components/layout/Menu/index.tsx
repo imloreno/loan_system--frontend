@@ -20,12 +20,12 @@ const ROUTES = [
   },
   {
     path: "/clientes",
-    name: "Lista de clientes",
+    name: "Clientes",
     icon: "users",
   },
   {
     path: "/estadisticas",
-    name: "Estatísticas de la empresa",
+    name: "Estatísticas",
     icon: "char",
   },
 ];
