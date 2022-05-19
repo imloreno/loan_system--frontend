@@ -1,4 +1,5 @@
 import Button from "presentation/components/common/Button";
+import Icons from "presentation/components/common/Icons";
 import ClientStyled from "./Client.styled";
 
 type Props = {};
@@ -15,9 +16,18 @@ const Client = (props: Props) => {
         <p>Calle bolivar S/N</p>
       </div>
       <div className="client_options">
-        <Button type="info">Detalles</Button>
-        <Button type="warning">Editar</Button>
-        <Button type="error">Eliminar</Button>
+        <Button type="info" className="client_button">
+          <Icons type="details" className="client_button-icon" />
+          <span>Detalles</span>
+        </Button>
+        <Button type="warning" className="client_button">
+          <Icons type="edit" className="client_button-icon" />
+          <span>Editar</span>
+        </Button>
+        <Button type="error" className="client_button">
+          <Icons type="delete" className="client_button-icon" />
+          <span>Eliminar</span>
+        </Button>
       </div>
     </ClientStyled>
   );

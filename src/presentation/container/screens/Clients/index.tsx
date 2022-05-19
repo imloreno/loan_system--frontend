@@ -2,6 +2,7 @@ import Button from "presentation/components/common/Button";
 import HeaderPage from "presentation/components/layout/HeaderPage";
 import ClientList from "./ClientList";
 import StyledClientsSection from "./ClientsSection.styled";
+import AddClient from "./ClientList/AddClient";
 
 type Props = {};
 
@@ -9,9 +10,7 @@ const Clients = (props: Props) => {
   return (
     <main>
       <HeaderPage>
-        <Button onClick={() => alert("Hola como estas")}>
-          Agregar un cliente
-        </Button>
+        <AddClient />
         <Button>Filtros</Button>
       </HeaderPage>
       <StyledClientsSection>

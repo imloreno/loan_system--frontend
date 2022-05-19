@@ -4,13 +4,14 @@ import React from "react";
 type Props = {
   children: React.ReactNode;
   onClick?: any;
+  className?: string;
   type?: string;
 };
 
 const Button = (props: Props) => {
-  const { children, onClick = () => {}, type } = props;
+  const { children, onClick = () => {}, type, className } = props;
   return (
-    <ButtonStyled onClick={onClick} typeBtn={type}>
+    <ButtonStyled onClick={onClick} typeBtn={type} className={className ?? ""}>
       {children}
     </ButtonStyled>
   );

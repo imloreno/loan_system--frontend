@@ -28,11 +28,18 @@ const types = (type = "primary"): string => {
 
 const ButtonStyled = styled.button<IButton>`
   ${BorderAbove("hover")}
+  display: flex;
+  column-gap: 0.3rem;
   border: none;
   height: fit-content;
   cursor: pointer;
   padding: 0.7rem 1rem;
   background-color: ${(props) => types(props.typeBtn)};
+  user-select: none;
+
+  svg {
+    font-size: 1.15em;
+  }
 `;
 
 export default ButtonStyled;

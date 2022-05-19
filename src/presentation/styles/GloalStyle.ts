@@ -30,7 +30,7 @@ a{
 p{
    margin: 0;
 }
-h4{
+h1,h2,h4{
    margin-top: 0;
    margin-bottom: 0;
 }

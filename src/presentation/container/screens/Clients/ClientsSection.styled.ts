@@ -12,13 +12,6 @@ const StyledClientsSection = styled.section`
     li {
       display: grid;
       grid-template-columns: 1fr 1fr;
-
-      .client_options {
-        display: flex;
-        gap: 1rem;
-        justify-content: flex-end;
-        align-items: center;
-      }
     }
   }
 `;
