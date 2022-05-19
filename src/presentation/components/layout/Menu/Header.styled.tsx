@@ -5,7 +5,7 @@ import { BorderAbove } from "presentation/styles/mixins/Borders";
 const theme = getTheme();
 
 const StyledHeader = styled.header`
-  ${BorderAbove(theme)}
+  ${BorderAbove()}
   position: sticky;
   top: 0;
   display: flex;

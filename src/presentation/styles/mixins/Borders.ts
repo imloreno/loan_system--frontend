@@ -1,10 +1,13 @@
 import { css } from "styled-components";
-import Theme from "interfaces/theme";
+import { getTheme } from "infraestructure/gateways/themeLocalStorage";
 
 /*
   Those two elements are used to create a border around the elements.
 */
-const BorderAbove = (props: Theme, trigger = "empty") => css`
+
+const theme = getTheme();
+
+const BorderAbove = (trigger = "empty") => css`
   position: relative;
   border-radius: 0.4rem;
 
@@ -23,12 +26,12 @@ const BorderAbove = (props: Theme, trigger = "empty") => css`
 
   &::before {
     opacity: 0;
-    box-shadow: inset -0.2rem -0.2rem 0.2rem ${props.shadow[1]},
-      inset 0.2rem 0.2rem 0.2rem ${props.shadow[0]};
+    box-shadow: inset -0.2rem -0.2rem 0.2rem ${theme.shadow[1]},
+      inset 0.2rem 0.2rem 0.2rem ${theme.shadow[0]};
   }
   &::after {
-    box-shadow: 0.2rem 0.2rem 0.2rem ${props.shadow[0]},
-      -0.1rem -0.1rem 0.2rem ${props.shadow[1]};
+    box-shadow: 0.2rem 0.2rem 0.2rem ${theme.shadow[0]},
+      -0.1rem -0.1rem 0.2rem ${theme.shadow[1]};
   }
 
   &${":" + trigger}, &.active {
@@ -41,7 +44,7 @@ const BorderAbove = (props: Theme, trigger = "empty") => css`
   }
 `;
 
-const BorderBelow = (props: Theme, trigger = "empty") => css`
+const BorderBelow = (trigger = "empty") => css`
   position: relative;
   border-radius: 0.4rem;
 
@@ -59,13 +62,13 @@ const BorderBelow = (props: Theme, trigger = "empty") => css`
   }
 
   &::before {
-    box-shadow: inset -0.2rem -0.2rem 0.2rem ${props.shadow[1]},
-      inset 0.2rem 0.2rem 0.2rem ${props.shadow[0]};
+    box-shadow: inset -0.2rem -0.2rem 0.2rem ${theme.shadow[1]},
+      inset 0.2rem 0.2rem 0.2rem ${theme.shadow[0]};
   }
   &::after {
     opacity: 0;
-    box-shadow: 0.2rem 0.2rem 0.2rem ${props.shadow[0]},
-      inset 0.2rem 0.2rem 1rem ${props.shadow[1]};
+    box-shadow: 0.2rem 0.2rem 0.2rem ${theme.shadow[0]},
+      inset 0.2rem 0.2rem 1rem ${theme.shadow[1]};
   }
 
   &${":" + trigger}, &.active {

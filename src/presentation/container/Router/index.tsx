@@ -1,6 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Menu from "presentation/components/layout/Menu";
+
 import Home from "../screens/Home";
+import Clients from "../screens/Clients";
 
 const Router = () => {
   return (
@@ -9,7 +11,7 @@ const Router = () => {
         <Menu />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/clientes" element={<h1>Página de clientes</h1>} />
+          <Route path="/clientes" element={<Clients />} />
           <Route path="/estadisticas" element={<h1>Estadisticas</h1>} />
         </Routes>
       </BrowserRouter>

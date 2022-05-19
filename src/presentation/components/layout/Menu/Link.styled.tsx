@@ -6,7 +6,7 @@ import { NavLink } from "react-router-dom";
 const theme = getTheme();
 
 const Link = styled(NavLink)`
-  ${BorderBelow(theme, "hover")}
+  ${BorderBelow("hover")}
   display: flex;
   gap: 0.5rem;
   align-items: flex-end;

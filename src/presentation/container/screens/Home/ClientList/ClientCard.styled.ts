@@ -1,11 +1,8 @@
 import { BorderBelow } from "presentation/styles/mixins/Borders";
 import styled from "styled-components";
-import { getTheme } from "infraestructure/gateways/themeLocalStorage";
-
-const theme = getTheme();
 
 const ClientCard = styled.section`
-  ${BorderBelow(theme, "hover")}
+  ${BorderBelow()}
   display: grid;
   column-gap: 1rem;
   grid-template-columns: 0.4fr 1fr;
