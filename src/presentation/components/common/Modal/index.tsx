@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Confirmation from "./Confirmation";
 import DialogStyled from "./Dialog.styled";
 
@@ -6,7 +5,7 @@ type Props = {
   children?: React.ReactNode;
   type?: "confirmation" | "form";
   text?: string;
-  onSuccess: () => void;
+  onSuccess: (element?: any) => void;
   onClose: () => void;
   isOpen: boolean;
 };

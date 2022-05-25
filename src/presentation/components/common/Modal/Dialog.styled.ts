@@ -17,18 +17,35 @@ const DialogStyled = styled.dialog`
   background-color: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(0.3rem);
   box-sizing: border-box;
+  transition: opacity 0.3s;
   z-index: 6;
 
   .content {
     padding: 2rem;
     max-width: 50rem;
     background-color: ${theme.background};
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      column-gap: 1rem;
+      margin-top: 1rem;
+    }
   }
 
   //verify if is closed
   &.closed {
     opacity: 0;
     pointer-events: none;
+  }
+
+  @keyframes start {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(0.9);
+    }
   }
 `;
 export default DialogStyled;

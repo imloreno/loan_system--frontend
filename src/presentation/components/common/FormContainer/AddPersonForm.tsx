@@ -1,30 +1,29 @@
 import { useId, useState } from "react";
 import Button from "../Button";
 import FormContainer from "./FormContainer";
+import { IPerson } from "interfaces/person";
+import { fortmatToRedux } from "infraestructure/gateways/person";
 
-type Props = {};
-
-interface IForm {
-  id: number;
-  nombres: string;
-  apellidos: string;
-  ci: [number, string];
-  fecha_nacimiento: string;
-  estado: boolean;
-}
+type Props = {
+  onSuccess: (form: IPerson) => void;
+  onClose: () => void;
+  data?: IPerson;
+};
 
 //InitialState
-const initialState: IForm = {
+const initialState: IPerson = {
   id: Date.now(),
   nombres: "",
   apellidos: "",
-  ci: [0, "nn"],
+  ci: ["", "nn"],
   fecha_nacimiento: "",
   estado: true,
 };
 
 const AddPersonForm = (props: Props) => {
-  const [form, setForm] = useState<IForm>(initialState);
+  const { onSuccess = () => {}, onClose = () => {}, data } = props;
+  const person = data ? fortmatToRedux(data) : initialState;
+  const [form, setForm] = useState<IPerson>(person ?? initialState);
   const dateId = useId();
 
   //Handlers
@@ -35,7 +34,7 @@ const AddPersonForm = (props: Props) => {
     setForm({ ...form, apellidos: e.target.value });
   };
   const handlerCI = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setForm({ ...form, ci: [parseInt(e.target.value), form.ci[1]] });
+    setForm({ ...form, ci: [e.target.value, form.ci[1]] });
   };
   const handlerCIExpedition = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setForm({ ...form, ci: [form.ci[0], e.target.value] });
@@ -43,19 +42,49 @@ const AddPersonForm = (props: Props) => {
   const handlerDate = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm({ ...form, fecha_nacimiento: e.target.value });
   };
+  const handlerSuccess = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    onSuccess(form);
+    setForm(initialState);
+    onClose();
+  };
+  const handlerClose = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    onClose();
+  };
 
   return (
     <FormContainer>
-      <input type="text" placeholder="Nombres" required />
-      <input type="text" placeholder="Apellidos" required />
+      <input
+        type="text"
+        placeholder="Nombres"
+        required
+        value={form.nombres}
+        onChange={handlerNames}
+      />
+      <input
+        type="text"
+        placeholder="Apellidos"
+        required
+        value={form.apellidos}
+        onChange={handlerLastNames}
+      />
       <div className="ci">
         <input
-          type="number"
-          min="0"
+          type="text"
           placeholder="Carnet de identidad"
           required
+          value={form.ci[0]}
+          onChange={handlerCI}
         />
-        <select name="departamento" id="" placeholder="Departamento" required>
+        <select
+          name="departamento"
+          id=""
+          placeholder="Departamento"
+          required
+          value={form.ci[1]}
+          onChange={handlerCIExpedition}
+        >
           <option value="nn">Ninguno</option>
           <option value="sc">Santa Cruz</option>
           <option value="be">Beni</option>
@@ -70,11 +99,20 @@ const AddPersonForm = (props: Props) => {
       </div>
       <div className="date">
         <label htmlFor={"date" + dateId}>Fecha de nacimiento</label>
-        <input type="date" id={"date" + dateId} />
+        <input
+          type="date"
+          id={"date" + dateId}
+          value={form.fecha_nacimiento}
+          onChange={handlerDate}
+        />
       </div>
       <div className="actions">
-        <Button type="success">Agregar</Button>
-        <Button type="error">Cancelar</Button>
+        <Button type="success" onClick={handlerSuccess}>
+          Agregar
+        </Button>
+        <Button type="error" onClick={handlerClose}>
+          Cancelar
+        </Button>
       </div>
     </FormContainer>
   );
