@@ -1,4 +1,7 @@
 import styled from "styled-components";
+import { getTheme } from "infraestructure/gateways/themeLocalStorage";
+
+const theme = getTheme();
 
 const StyledForm = styled.form`
   display: flex;

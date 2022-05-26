@@ -1,29 +1,15 @@
-import { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { refreshPersonList } from "application/redux/reducers/personSlice";
-
-import { RootState } from "application/redux/store";
-import { IPerson } from "interfaces/person";
-
-import { apiGetPersonList } from "infraestructure/api/person";
+import React from "react";
 import Client from "./Client";
 
-const ClientList = () => {
-  const persons = useSelector((state: RootState) => state.persons.personList);
-  const dispatch = useDispatch();
+type Props = {};
 
-  useEffect(() => {
-    const callback = (personList: IPerson[]) => {
-      dispatch(refreshPersonList(personList));
-    };
-    apiGetPersonList(callback);
-  }, [dispatch]);
-
+const ClientList = (props: Props) => {
   return (
     <ul>
-      {persons.map((person: IPerson, index: number) => (
-        <Client key={person.id + index} {...person} />
-      ))}
+      <Client />
+      <Client />
+      <Client />
+      <Client />
     </ul>
   );
 };

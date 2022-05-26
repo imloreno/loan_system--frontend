@@ -1,5 +1,3 @@
-import { apiCreatePerson } from "infraestructure/api/person";
-import { IPerson } from "interfaces/person";
 import Button from "presentation/components/common/Button";
 import AddPersonForm from "presentation/components/common/FormContainer/AddPersonForm";
 import Icons from "presentation/components/common/Icons";
@@ -12,23 +10,19 @@ const AddClient = (props: Props) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   //Accept
-  const handleAccept = (form: IPerson) => {
-    const data = { ...form, ci: form.ci[0] + form.ci[1] };
-    apiCreatePerson(data);
-  };
+  const handleAccept = () => {};
   const handleOpen = () => setIsOpen(true);
-  const handleClose = () => setIsOpen(false);
 
   return (
     <>
       <Modal
         isOpen={isOpen}
         onClose={() => setIsOpen(false)}
-        onSuccess={(form: IPerson) => handleAccept(form)}
+        onSuccess={handleAccept}
         type="form"
       >
         <h3>Agregar un cliente</h3>
-        <AddPersonForm onSuccess={handleAccept} onClose={handleClose} />
+        <AddPersonForm />
       </Modal>
       <Button type="success" onClick={handleOpen}>
         <Icons type="adduser" />
