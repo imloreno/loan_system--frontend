@@ -1,9 +1,9 @@
 import { apiUpdatePerson } from "infraestructure/api/person";
 import { IPerson } from "interfaces/person";
 import Button from "presentation/components/common/Button";
-import AddPersonForm from "presentation/components/common/FormContainer/AddPersonForm";
 import Icons from "presentation/components/common/Icons";
 import Modal from "presentation/components/common/Modal";
+import AddUpdatePerson from "presentation/components/forms/person/AddUpdatePerson";
 import { useState } from "react";
 
 type Props = { data: IPerson };
@@ -14,7 +14,7 @@ const UpdateClient = (props: Props) => {
   //Accept
   const handleAccept = (form: IPerson) => {
     const data = { ...form, ci: form.ci[1] + form.ci[0] };
-    apiUpdatePerson(data); //api
+    // apiUpdatePerson(data); //api
   };
   const handleOpen = () => setIsOpen(true);
   const handleClose = () => setIsOpen(false);
@@ -28,7 +28,7 @@ const UpdateClient = (props: Props) => {
         type="form"
       >
         <h3>Modificar persona</h3>
-        <AddPersonForm
+        <AddUpdatePerson
           onSuccess={handleAccept}
           onClose={handleClose}
           data={props.data}

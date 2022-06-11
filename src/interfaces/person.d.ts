@@ -1,14 +1,14 @@
 export interface IPerson {
-  id: number;
+  id?: number;
   nombres: string;
   apellidos: string;
   ci: [string, string];
   fecha_nacimiento: string;
-  estado: boolean;
+  estado?: boolean;
 }
 
-type TPerson = {
-  id: number;
+export type ApiPerson = {
+  id_persona: number;
   nombres: string;
   apellidos: string;
   ci: string;
