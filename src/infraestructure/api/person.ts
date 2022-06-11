@@ -1,5 +1,5 @@
 import axios from "axios";
-import backendLink from "application/common/links";
+import { backendLink } from "application/common/links";
 import { ApiPerson } from "interfaces/person";
 
 //Get
