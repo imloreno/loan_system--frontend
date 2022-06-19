@@ -24,7 +24,7 @@ const Client = styled.div`
   }
 
   & ul {
-    ${BorderBelow()}
+    ${BorderBelow({})}
     display: flex;
     gap: 0.2rem;
     justify-content: start;

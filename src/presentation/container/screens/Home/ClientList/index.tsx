@@ -5,7 +5,6 @@ import ListContainer from "./ListContainer.styled";
 
 const ClientList = () => {
   const { personsList, refreshPersons } = usePersons();
-  console.log(personsList);
 
   useEffect(() => {
     if (personsList.length <= 0) refreshPersons();

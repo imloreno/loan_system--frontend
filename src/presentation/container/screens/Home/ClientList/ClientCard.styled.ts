@@ -2,7 +2,7 @@ import { BorderBelow } from "presentation/styles/mixins/Borders";
 import styled from "styled-components";
 
 const ClientCard = styled.section`
-  ${BorderBelow()}
+  ${BorderBelow({})}
   display: grid;
   column-gap: 1rem;
   grid-template-columns: 0.4fr 1fr;

@@ -24,6 +24,11 @@ const ROUTES = [
     icon: "users",
   },
   {
+    path: "/prestamos",
+    name: "Préstamos",
+    icon: "users",
+  },
+  {
     path: "/estadisticas",
     name: "Estatísticas",
     icon: "char",

@@ -1,8 +1,6 @@
 import { ApiPerson, IPerson } from "interfaces/person";
 
 const fortmatToRedux = (person: ApiPerson): IPerson => {
-  console.log(person);
-
   return {
     id: person.id_persona,
     nombres: person.nombres,

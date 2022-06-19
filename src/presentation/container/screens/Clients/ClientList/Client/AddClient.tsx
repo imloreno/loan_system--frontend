@@ -21,15 +21,17 @@ const AddClient = (props: Props) => {
 
   return (
     <>
-      <Modal
-        isOpen={isOpen}
-        onClose={() => setIsOpen(false)}
-        onSuccess={(form: IPerson) => handleAccept(form)}
-        type="form"
-      >
-        <h3>Agregar un cliente</h3>
-        <AddUpdatePerson onSuccess={handleAccept} />
-      </Modal>
+      {isOpen && (
+        <Modal
+          isOpen={isOpen}
+          onClose={() => setIsOpen(false)}
+          onSuccess={(form: IPerson) => handleAccept(form)}
+          type="form"
+        >
+          <h3>Agregar un cliente</h3>
+          <AddUpdatePerson onSuccess={handleAccept} onClose={handleClose} />
+        </Modal>
+      )}
       <Button type="success" onClick={handleOpen}>
         <Icons type="adduser" />
         <span>Agregar un cliente</span>

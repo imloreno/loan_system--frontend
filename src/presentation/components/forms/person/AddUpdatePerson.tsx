@@ -12,7 +12,7 @@ import { IPerson } from "interfaces/person";
 
 type Props = {
   onSuccess: (form: IPerson) => void;
-  onClose?: () => void;
+  onClose: () => void;
   data?: IPerson;
 };
 
@@ -48,9 +48,17 @@ const AddUpdatePerson = (props: Props) => {
   const handlerDate = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm({ ...form, fecha_nacimiento: e.target.value });
   };
+  const handlerSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    onSuccess(form);
+    onClose();
+  };
+  const handlerClose = () => onClose();
 
   return (
-    <StyledForm onSubmit={(e) => e.preventDefault()}>
+    <StyledForm
+      onSubmit={(e: React.FormEvent<HTMLFormElement>) => e.preventDefault()}
+    >
       <input
         type="text"
         value={form.nombres}
@@ -88,8 +96,12 @@ const AddUpdatePerson = (props: Props) => {
         />
       </StyledDateArea>
       <StyledButtonArea>
-        <Button type="success">Aceptar</Button>
-        <Button type="error">Cancelar</Button>
+        <Button type="success" onClick={handlerSubmit}>
+          Aceptar
+        </Button>
+        <Button type="error" onClick={handlerClose}>
+          Cancelar
+        </Button>
       </StyledButtonArea>
     </StyledForm>
   );

@@ -27,7 +27,7 @@ const types = (type = "primary"): string => {
 };
 
 const ButtonStyled = styled.button<IButton>`
-  ${BorderAbove("hover")}
+  ${BorderAbove({ trigger: "hover" })}
   display: flex;
   column-gap: 0.3rem;
   border: none;

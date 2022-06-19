@@ -17,6 +17,7 @@ const AddClient = (props: Props) => {
     // apiCreatePerson(form);
   };
   const handleOpen = () => setIsOpen(true);
+  const handleClose = () => setIsOpen(false);
 
   return (
     <>
@@ -27,7 +28,7 @@ const AddClient = (props: Props) => {
         type="form"
       >
         <h3>Agregar un cliente</h3>
-        <AddUpdatePerson onSuccess={handleAccept} />
+        <AddUpdatePerson onSuccess={handleAccept} onClose={handleClose} />
       </Modal>
       <Button type="success" onClick={handleOpen}>
         <Icons type="adduser" />

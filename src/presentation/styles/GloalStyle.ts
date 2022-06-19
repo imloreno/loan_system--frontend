@@ -7,7 +7,6 @@ const GlobalStyle = createGlobalStyle`
 
 body{
    background-color: ${theme.background};
-   font-family: 'Epilogue', sans-serif;
    font-size: .9rem;
    -webkit-tap-highlight-color: transparent;
 }
