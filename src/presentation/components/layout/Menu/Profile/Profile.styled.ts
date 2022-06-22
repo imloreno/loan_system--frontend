@@ -5,7 +5,7 @@ const Profile = styled.div`
   gap: 1rem;
   grid-template-columns: 2.5rem 1fr;
   align-items: center;
-  width: 15rem;
+  max-width: 15rem;
 
   & .profile {
     aspect-ratio: 1/1;

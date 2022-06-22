@@ -11,10 +11,7 @@ body{
    -webkit-tap-highlight-color: transparent;
 }
 main{
-   max-width: 65rem;
-   margin: 2rem auto;
-   padding-left: 2rem;
-   padding-right: 2rem;
+   padding: 2rem;
 }
 ul{
    margin: 0;

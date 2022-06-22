@@ -15,6 +15,8 @@ const BorderAbove = (props: IProps) => {
   return css`
     position: relative;
     border-radius: 0.4rem;
+    background-color: ${theme.primary};
+    z-index: 2;
 
     &::after,
     &::before {
@@ -55,6 +57,8 @@ const BorderBelow = (props: IProps) => {
   return css`
     position: relative;
     border-radius: 0.4rem;
+    background-color: ${theme.primary};
+    z-index: 2;
 
     &::after,
     &::before {

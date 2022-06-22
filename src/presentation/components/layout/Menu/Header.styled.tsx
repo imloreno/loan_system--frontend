@@ -4,15 +4,13 @@ import styled from "styled-components";
 const theme = getTheme();
 
 const StyledHeader = styled.header`
-  position: sticky;
-  top: 0;
+  position: relative;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-right: 2.2rem;
-  padding-left: 2.2rem;
-  height: 5rem;
+  flex-direction: column;
+  row-gap: 0;
+  padding: 2rem 2.2rem;
   background-color: ${theme.primary};
+  box-shadow: 1rem 0 10rem rgba(82, 92, 105, 0.185);
   user-select: none;
   z-index: 5;
 
@@ -24,61 +22,67 @@ const StyledHeader = styled.header`
 
   .burguer-menu {
     display: none;
+    cursor: pointer;
   }
 
   & nav {
+    margin-bottom: auto;
     & ul {
       margin: 0;
       display: flex;
+      flex-direction: column;
       gap: 1rem;
       padding: 0;
     }
   }
 
-  @media only screen and (max-width: 1000px) {
-    flex-direction: row-reverse;
+  .profile-container {
+    position: sticky;
+    bottom: 2rem;
+    left: 2rem;
+    right: 2rem;
+  }
 
-    nav {
-      transition: all 0.2s;
-      position: fixed;
-      left: 0;
-      width: 100%;
+  @media screen and (max-width: 60rem) {
+    position: sticky;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 3rem 1fr;
+    grid-template-areas:
+      "profile logo"
+      "menu menu";
+    padding: 1rem;
+    top: 0;
+    left: 0;
+    height: 3rem;
+
+    &.open {
+      row-gap: 2rem;
       height: 100%;
-      top: 0;
-      top: 5rem;
-      background-color: #c5cada;
-      backdrop-filter: blur(0.1rem);
-      padding: 2rem;
-      box-sizing: border-box;
-      opacity: 0;
-      pointer-events: none;
+    }
 
-      ul {
-        flex-direction: column;
-        li {
-          width: 100%;
-        }
-      }
-
-      &.open {
-        opacity: 1;
-        pointer-events: all;
-      }
+    .logo {
+      display: none;
     }
 
     .burguer-menu {
       display: flex;
       align-items: center;
-      position: relative;
-      padding: 0.5rem;
-      padding-left: 0;
-      height: fit-content;
       font-size: 2rem;
-      cursor: pointer;
+      margin-left: auto;
     }
 
-    .logo {
+    nav {
       display: none;
+      grid-area: menu;
+
+      &.open {
+        display: block;
+      }
+    }
+
+    .profile-container {
+      grid-area: profile;
     }
   }
 `;

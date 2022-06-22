@@ -41,7 +41,7 @@ const Menu = () => {
   const handleOpen = () => setIsOpen((isOpen) => !isOpen);
 
   return (
-    <StyledHeader>
+    <StyledHeader className={isOpen ? "open" : ""}>
       <div className="logo">
         <Logo />
       </div>
@@ -58,7 +58,7 @@ const Menu = () => {
           ))}
         </ul>
       </nav>
-      <Profile />
+      <Profile className="profile-container" />
     </StyledHeader>
   );
 };
