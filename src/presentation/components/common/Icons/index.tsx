@@ -2,6 +2,7 @@ import { BiHome, BiLineChart, BiEditAlt } from "react-icons/bi";
 import { FiUsers, FiTrash2 } from "react-icons/fi";
 import { HiMenu } from "react-icons/hi";
 import { AiOutlineFileSearch, AiOutlineUserAdd } from "react-icons/ai";
+import { FaHandHoldingUsd } from "react-icons/fa";
 
 interface Icon {
   className?: string;
@@ -23,6 +24,7 @@ const Details = (props: Icon) => (
 );
 const Delete = (props: Icon) => <FiTrash2 className={props.className} />;
 const Menu = (props: Icon) => <HiMenu className={props.className} />;
+const Loan = (props: Icon) => <FaHandHoldingUsd className={props.className} />;
 
 //Default function
 const Icons = (props: IconProps) => {
@@ -43,6 +45,8 @@ const Icons = (props: IconProps) => {
       return <Details className={props.className ?? ""} />;
     case "delete":
       return <Delete className={props.className ?? ""} />;
+    case "loan":
+      return <Loan className={props.className ?? ""} />;
     default:
       return <Home />;
   }

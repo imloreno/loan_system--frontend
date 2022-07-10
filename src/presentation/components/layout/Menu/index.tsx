@@ -26,7 +26,7 @@ const ROUTES = [
   {
     path: "/prestamos",
     name: "Préstamos",
-    icon: "users",
+    icon: "loan",
   },
   {
     path: "/estadisticas",
