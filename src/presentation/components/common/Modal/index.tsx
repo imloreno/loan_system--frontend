@@ -1,9 +1,10 @@
+import Observations from "presentation/components/common/Client/Observations";
 import Confirmation from "./Confirmation";
 import DialogStyled from "./Dialog.styled";
 
 type Props = {
   children?: React.ReactNode;
-  type?: "confirmation" | "form";
+  type?: "confirmation" | "form" | "observations";
   text?: string;
   onSuccess: (element?: any) => void;
   onClose: () => void;
@@ -35,6 +36,7 @@ const Modal = (props: Props) => {
         {type === "confirmation" && (
           <Confirmation {...{ text, onSuccess, onClose }} />
         )}
+        {type === "observations" && <Observations />}
       </div>
     </DialogStyled>
   );

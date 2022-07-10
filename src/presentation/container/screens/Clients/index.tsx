@@ -9,6 +9,8 @@ type Props = {};
 const Clients = (props: Props) => {
   return (
     <main>
+      <h1 className="title">Gestión de clientes</h1>
+      <br />
       <HeaderPage>
         <AddClient />
         <Button>Filtros</Button>

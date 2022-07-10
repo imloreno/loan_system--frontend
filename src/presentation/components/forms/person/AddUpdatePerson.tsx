@@ -20,7 +20,7 @@ type Props = {
 const initialState: IPerson = {
   nombres: "",
   apellidos: "",
-  ci: ["", ""],
+  ci: ["", "sc"],
   fecha_nacimiento: "",
 };
 

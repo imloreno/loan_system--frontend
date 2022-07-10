@@ -10,12 +10,14 @@ const apiGetPersonList = async () => {
 
 //Post
 const apiCreatePerson = async (person: ApiPerson) => {
-  axios.post(`${backendLink}/persona/agregar`, person);
+  await axios.post(`${backendLink}/persona/agregar`, person);
+  return true;
 };
 
 //Put
 const apiUpdatePerson = async (person: ApiPerson) => {
   axios.put(`${backendLink}/persona/actualizar`, person);
+  return true;
 };
 
 //Delete

@@ -16,6 +16,12 @@ export const personSlice = createSlice({
     addPerson: (state, action: PayloadAction<IPerson>) => {
       state.personList.push(action.payload);
     },
+    updatePerson: (state, action: PayloadAction<IPerson>) => {
+      const target = state.personList.findIndex(
+        (item: IPerson) => item.id === action.payload.id
+      );
+      if (target >= 0) state.personList[target] = action.payload;
+    },
     refreshPersonList: (state, action: PayloadAction<IPerson[]>) => {
       state.personList = action.payload;
     },
@@ -27,5 +33,5 @@ export const personSlice = createSlice({
   },
 });
 
-export const { addPerson, refreshPersonList, deletePerson } =
+export const { addPerson, updatePerson, refreshPersonList, deletePerson } =
   personSlice.actions;

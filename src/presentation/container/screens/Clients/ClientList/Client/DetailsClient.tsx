@@ -1,24 +1,22 @@
 import { useState } from "react";
-import { apiUpdatePerson } from "infraestructure/api/person";
 import { formatReduxToApi } from "infraestructure/gateways/format/reduxFormat";
-import { usePersons } from "infraestructure/hooks/redux/usePersons";
+import { apiCreatePerson } from "infraestructure/api/person";
 import { IPerson } from "interfaces/person";
 import Button from "presentation/components/common/Button";
 import Icons from "presentation/components/common/Icons";
 import Modal from "presentation/components/common/Modal";
 import AddUpdatePerson from "presentation/components/forms/person/AddUpdatePerson";
+import { usePersons } from "infraestructure/hooks/redux/usePersons";
 
-type Props = { data: IPerson };
-
-const UpdateClient = (props: Props) => {
+const DetailsClient = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const { refreshOnce } = usePersons();
+  const { refreshPersons } = usePersons();
 
-  //Accept
+  //Handlers
   const handleAccept = async (form: IPerson) => {
-    const res = await apiUpdatePerson(formatReduxToApi(form)); //api
-    if (res) refreshOnce(form);
-    refreshOnce(form);
+    const data = formatReduxToApi({ ...form, estado: true, id: 0 }); //Formating to redux
+    const res = await apiCreatePerson(data);
+    res && setTimeout(() => refreshPersons(), 100);
   };
   const handleOpen = () => setIsOpen(true);
   const handleClose = () => setIsOpen(false);
@@ -30,21 +28,16 @@ const UpdateClient = (props: Props) => {
           isOpen={isOpen}
           onClose={() => setIsOpen(false)}
           onSuccess={(form: IPerson) => handleAccept(form)}
-          type="form"
+          type="observations"
         >
-          <h3>Modificar persona</h3>
-          <AddUpdatePerson
-            onSuccess={handleAccept}
-            onClose={handleClose}
-            data={props.data}
-          />
+          <h3>Detalles</h3>
         </Modal>
       )}
-      <Button type="info" className="client_button" onClick={handleOpen}>
-        <Icons type="edit" className="client_button-icon" />
-        <span>Editar</span>
+      <Button type="default" onClick={handleOpen}>
+        <Icons type="details" />
+        <span>Detalles</span>
       </Button>
     </>
   );
 };
-export default UpdateClient;
+export default DetailsClient;
