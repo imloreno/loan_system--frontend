@@ -21,9 +21,46 @@ const DialogStyled = styled.dialog`
   z-index: 6;
 
   .content {
+    position: relative;
     padding: 2rem;
-    max-width: 50rem;
+    width: 100%;
+    max-width: 30rem;
+    text-align: center;
     background-color: ${theme.background};
+
+    .close-button {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 2rem;
+      height: 2rem;
+      top: 0rem;
+      right: 0rem;
+      transform: scale(1);
+      background-color: ${theme.buttons.error};
+      color: ${theme.primary};
+      cursor: pointer;
+
+      .close-icon {
+        font-size: 1.5rem;
+      }
+    }
+
+    .modal-title {
+      font-size: 1.3em;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: ${theme.secondary};
+    }
+
+    .modal-separator {
+      width: 70%;
+      margin-top: 1rem;
+      margin-bottom: 2rem;
+      border: none;
+      border-bottom: 0.1rem solid ${theme.secondary};
+    }
 
     .buttons {
       display: flex;
@@ -31,12 +68,6 @@ const DialogStyled = styled.dialog`
       column-gap: 1rem;
       margin-top: 1rem;
     }
-  }
-
-  //verify if is closed
-  &.closed {
-    opacity: 0;
-    pointer-events: none;
   }
 
   @keyframes start {

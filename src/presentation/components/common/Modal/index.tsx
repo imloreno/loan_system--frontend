@@ -1,4 +1,4 @@
-import Observations from "presentation/components/common/Client/Observations";
+import Icons from "../Icons";
 import Confirmation from "./Confirmation";
 import DialogStyled from "./Dialog.styled";
 
@@ -8,35 +8,24 @@ type Props = {
   text?: string;
   onSuccess: (element?: any) => void;
   onClose: () => void;
-  isOpen: boolean;
 };
 
 const Modal = (props: Props) => {
-  const {
-    children,
-    type,
-    text = "No subject",
-    onSuccess,
-    onClose,
-    isOpen,
-  } = props;
-
-  //Handlers
-  const handleClose = (event: any) =>
-    event.target.classList.contains("close-modal") && onClose(); //Close modal
+  const { children, type, text = "No subject", onSuccess, onClose } = props;
 
   return (
-    <DialogStyled
-      className={`${isOpen ? "" : "closed"} close-modal`}
-      onMouseDown={handleClose}
-      onTouchStart={handleClose}
-    >
+    <DialogStyled>
       <div className="content">
+        <div className="close-button" onClick={onClose}>
+          <Icons type="close" className="close-icon" />
+        </div>
+        <p className="modal-title">{text}</p>
+        <hr className="modal-separator" />
         {type === "form" && children}
         {type === "confirmation" && (
-          <Confirmation {...{ text, onSuccess, onClose }} />
+          <Confirmation {...{ onSuccess, onClose }} />
         )}
-        {type === "observations" && <Observations />}
+        {type === "observations" && children}
       </div>
     </DialogStyled>
   );

@@ -25,13 +25,14 @@ const DeleteClient = (props: Props) => {
 
   return (
     <>
-      <Modal
-        isOpen={isOpen}
-        onClose={handleClose}
-        onSuccess={handleAccept}
-        type="confirmation"
-        text="¿Estás seguro que quieres eliminar este elemento?"
-      />
+      {isOpen && (
+        <Modal
+          onClose={handleClose}
+          onSuccess={handleAccept}
+          type="confirmation"
+          text="¿Estás seguro que quieres eliminar este elemento?"
+        />
+      )}
       <Button type="error" onClick={handleOpen}>
         <Icons type="delete" />
         <span>Eliminar</span>

@@ -1,54 +1,50 @@
 import { BiHome, BiLineChart, BiEditAlt } from "react-icons/bi";
 import { FiUsers, FiTrash2 } from "react-icons/fi";
 import { HiMenu } from "react-icons/hi";
-import { AiOutlineFileSearch, AiOutlineUserAdd } from "react-icons/ai";
+import {
+  AiOutlineFileSearch,
+  AiOutlineUserAdd,
+  AiOutlinePlus,
+} from "react-icons/ai";
 import { FaHandHoldingUsd } from "react-icons/fa";
+import { GoDash } from "react-icons/go";
+import { IoClose } from "react-icons/io5";
 
-interface Icon {
+interface IconProps {
   className?: string;
-}
-interface IconProps extends Icon {
   type: string;
 }
 
-//Icons
-const Home = (props: Icon) => <BiHome className={props.className} />;
-const Users = (props: Icon) => <FiUsers className={props.className} />;
-const AddUser = (props: Icon) => (
-  <AiOutlineUserAdd className={props.className} />
-);
-const Char = (props: Icon) => <BiLineChart className={props.className} />;
-const Edit = (props: Icon) => <BiEditAlt className={props.className} />;
-const Details = (props: Icon) => (
-  <AiOutlineFileSearch className={props.className} />
-);
-const Delete = (props: Icon) => <FiTrash2 className={props.className} />;
-const Menu = (props: Icon) => <HiMenu className={props.className} />;
-const Loan = (props: Icon) => <FaHandHoldingUsd className={props.className} />;
-
 //Default function
 const Icons = (props: IconProps) => {
-  switch (props.type) {
+  const { type, className = "" } = props;
+  switch (type) {
     case "home":
-      return <Home className={props.className ?? ""} />;
+      return <BiHome className={className} />;
     case "users":
-      return <Users className={props.className ?? ""} />;
+      return <FiUsers className={className} />;
     case "adduser":
-      return <AddUser className={props.className ?? ""} />;
+      return <AiOutlineUserAdd className={className} />;
     case "char":
-      return <Char className={props.className ?? ""} />;
+      return <BiLineChart className={className} />;
     case "menu":
-      return <Menu className={props.className ?? ""} />;
+      return <HiMenu className={className} />;
     case "edit":
-      return <Edit className={props.className ?? ""} />;
+      return <BiEditAlt className={className} />;
     case "details":
-      return <Details className={props.className ?? ""} />;
+      return <AiOutlineFileSearch className={className} />;
     case "delete":
-      return <Delete className={props.className ?? ""} />;
+      return <FiTrash2 className={className} />;
     case "loan":
-      return <Loan className={props.className ?? ""} />;
+      return <FaHandHoldingUsd className={className} />;
+    case "add":
+      return <AiOutlinePlus className={className} />;
+    case "less":
+      return <GoDash className={className} />;
+    case "close":
+      return <IoClose className={className} />;
     default:
-      return <Home />;
+      return <BiHome className={className} />;
   }
 };
 

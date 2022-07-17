@@ -27,12 +27,11 @@ const UpdateClient = (props: Props) => {
     <>
       {isOpen && (
         <Modal
-          isOpen={isOpen}
           onClose={() => setIsOpen(false)}
           onSuccess={(form: IPerson) => handleAccept(form)}
           type="form"
+          text="Modificar persona"
         >
-          <h3>Modificar persona</h3>
           <AddUpdatePerson
             onSuccess={handleAccept}
             onClose={handleClose}

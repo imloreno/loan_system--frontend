@@ -25,12 +25,11 @@ const AddClient = () => {
     <>
       {isOpen && (
         <Modal
-          isOpen={isOpen}
           onClose={() => setIsOpen(false)}
           onSuccess={(form: IPerson) => handleAccept(form)}
+          text="Agregar un cliente"
           type="form"
         >
-          <h3>Agregar un cliente</h3>
           <AddUpdatePerson onSuccess={handleAccept} onClose={handleClose} />
         </Modal>
       )}

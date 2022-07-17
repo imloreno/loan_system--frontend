@@ -9,6 +9,7 @@ const StyledForm = styled.form`
   width: 100%;
   max-width: 30rem;
   row-gap: 0.5rem;
+  text-align: left;
 
   input {
     all: unset;
