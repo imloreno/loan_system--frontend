@@ -58,7 +58,7 @@ const AddUpdateObservation = (props: Props) => {
       <input
         type="text"
         value={form.observation}
-        placeholder="Nombres"
+        placeholder="Observación"
         onChange={handleChangeObservation}
       />
       <select

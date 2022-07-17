@@ -19,12 +19,12 @@ const DetailsClient = (props: IProps) => {
     <>
       {isOpen && (
         <Modal
-          onClose={() => setIsOpen(false)}
-          onSuccess={() => {}}
+          onClose={handleClose}
+          onSuccess={handleClose}
           type="observations"
           text="Detalles"
         >
-          <Observations id={props.id} onClose={handleClose} />
+          <Observations id={props.id} />
         </Modal>
       )}
       <Button type="default" onClick={handleOpen}>

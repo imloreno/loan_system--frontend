@@ -11,4 +11,17 @@ const formatObservationToRedux = (observation: any): IObservation => {
   };
 };
 
-export { formatObservationToRedux };
+const formatObservationToApi = (props: IObservation) => {
+  const { observation, observation_type, status, id_person, id } = props;
+  return {
+    id: id,
+    observacion: observation,
+    tipo_observacion: observation_type,
+    estado: status,
+    persona: {
+      id_persona: id_person,
+    },
+  };
+};
+
+export { formatObservationToRedux, formatObservationToApi };

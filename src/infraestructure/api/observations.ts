@@ -7,4 +7,14 @@ const apiGetObservationList = async () => {
   return response.data;
 };
 
-export { apiGetObservationList };
+//Post
+const apiAddObservation = async (observation: any) => {
+  await axios.post(`${backendLink}/observaciones/agregar`, observation);
+};
+
+//Delete
+const apiDeleteObservation = async (id: number) => {
+  await axios.delete(`${backendLink}/observaciones/eliminar/${id}`);
+};
+
+export { apiGetObservationList, apiAddObservation, apiDeleteObservation };

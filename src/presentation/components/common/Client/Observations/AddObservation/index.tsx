@@ -1,3 +1,5 @@
+import { useObservations } from "infraestructure/hooks/redux/useObservations";
+import { IObservation } from "interfaces/observation";
 import Button from "presentation/components/common/Button";
 import Icons from "presentation/components/common/Icons";
 import Modal from "presentation/components/common/Modal";
@@ -10,12 +12,16 @@ type Props = {
 
 const AddObservation = (props: Props) => {
   const { id } = props;
-
+  const { addObservation } = useObservations();
   const [modalOpen, setModalOpen] = useState(false);
 
   //Handlers
   const handleClose = () => setModalOpen(false);
   const handleOpen = () => setModalOpen(true);
+  const handleSuccess = (observation: IObservation) => {
+    addObservation(observation);
+    handleClose();
+  };
 
   return (
     <>
@@ -29,7 +35,7 @@ const AddObservation = (props: Props) => {
           <AddUpdateObservation
             id_person={id}
             onClose={handleClose}
-            onSuccess={handleOpen}
+            onSuccess={handleSuccess}
           />
         </Modal>
       )}

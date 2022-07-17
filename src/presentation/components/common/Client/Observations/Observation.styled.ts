@@ -9,17 +9,12 @@ const ObservationStyled = styled.div`
 
   .observation-item {
     display: flex;
+    column-gap: 1rem;
     align-items: center;
+    text-align: left;
     padding: 0.8rem 1rem;
     justify-content: space-between;
     border: thin solid black;
-  }
-
-  .button-list {
-    display: flex;
-    justify-content: center;
-    column-gap: 1rem;
-    margin-top: 2rem;
   }
 `;
 export default ObservationStyled;
