@@ -1,11 +1,6 @@
 import { useState } from "react";
 import Button from "presentation/components/common/Button";
-import {
-  StyledButtonArea,
-  StyledDateArea,
-  StyledForm,
-  StyledInputArea,
-} from "../Forms.styled";
+import { StyledButtonArea, StyledForm } from "../Forms.styled";
 
 import { IObservation } from "interfaces/observation";
 

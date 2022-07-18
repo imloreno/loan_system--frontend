@@ -5,26 +5,30 @@ const theme = getTheme();
 
 const DialogStyled = styled.dialog`
   position: fixed;
-  display: flex;
+  display: grid;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  height: 100%;
-  padding: 1rem;
+  width: 100vw;
+  height: 100vh;
+  padding: 0;
   top: 0;
   left: 0;
   border: none;
   background-color: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(0.3rem);
-  box-sizing: border-box;
   transition: opacity 0.3s;
   z-index: 6;
 
   .content {
     position: relative;
-    padding: 2rem;
     width: 100%;
     max-width: 30rem;
+    max-height: 95vh;
+    overflow: auto;
+    padding: 2rem;
+    margin: 2rem;
+    backdrop-filter: blur(0.3rem);
+    box-sizing: border-box;
     text-align: center;
     background-color: ${theme.background};
 

@@ -6,7 +6,7 @@ import { IPerson } from "interfaces/person";
 import Button from "presentation/components/common/Button";
 import Icons from "presentation/components/common/Icons";
 import Modal from "presentation/components/common/Modal";
-import AddUpdatePerson from "presentation/components/forms/person/AddUpdatePerson";
+import AddUpdatePerson from "presentation/components/common/forms/person/AddUpdatePerson";
 
 type Props = { data: IPerson };
 

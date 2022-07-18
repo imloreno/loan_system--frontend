@@ -19,7 +19,8 @@ const StyledForm = styled.form`
   }
 
   input,
-  select {
+  select,
+  textarea {
     padding: 0.8rem 1rem;
     background-color: ${theme.primary};
     border: thin solid transparent;
@@ -28,11 +29,35 @@ const StyledForm = styled.form`
       border: thin solid ${theme.secondary};
     }
   }
+  textarea {
+    box-sizing: border-box;
+    width: 100%;
+    resize: vertical;
+    min-height: 5rem;
+    outline: none;
+  }
 `;
 
 const StyledInputArea = styled.div`
   display: flex;
+  justify-content: space-between;
+  align-items: center;
   column-gap: 1rem;
+
+  .input-labels-content {
+    width: 100%;
+    margin-top: 0.3rem;
+  }
+
+  input,
+  select,
+  p {
+    width: 100%;
+    box-sizing: border-box;
+  }
+  p {
+    text-align: center;
+  }
 `;
 
 const StyledButtonArea = styled.div`

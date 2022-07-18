@@ -3,7 +3,7 @@ import { IObservation } from "interfaces/observation";
 import Button from "presentation/components/common/Button";
 import Icons from "presentation/components/common/Icons";
 import Modal from "presentation/components/common/Modal";
-import AddUpdateObservation from "presentation/components/forms/observation/AddUpdateObservation";
+import AddUpdateObservation from "presentation/components/common/forms/observation/AddUpdateObservation";
 import { useState } from "react";
 
 type Props = {
