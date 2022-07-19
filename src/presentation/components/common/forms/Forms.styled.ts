@@ -58,6 +58,9 @@ const StyledInputArea = styled.div`
   p {
     text-align: center;
   }
+  input[type="checkbox"] {
+    all: unset;
+  }
 `;
 
 const StyledButtonArea = styled.div`

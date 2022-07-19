@@ -8,6 +8,7 @@ export interface ILoan {
   end_date: string;
   frecuency: string;
   installments: number;
+  pending: boolean;
   id_employee: number;
   id_client: number;
 }

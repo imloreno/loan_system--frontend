@@ -1,11 +1,15 @@
 import { configureStore } from "@reduxjs/toolkit";
-import observationSlice from "../reducers/observationSlice";
 import { personSlice } from "../reducers/personSlice";
+import observationSlice from "../reducers/observationSlice";
+import loanSlice from "../reducers/loanSlice";
+import guaranteeSlice from "../reducers/guaranteeSlice";
 
 export const store = configureStore({
   reducer: {
     persons: personSlice.reducer,
     observations: observationSlice,
+    loan: loanSlice,
+    guarantee: guaranteeSlice,
   },
 });
 
