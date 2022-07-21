@@ -22,7 +22,7 @@ const AddLoan = (props: Props) => {
           onClose={handleClose}
           type="form"
         >
-          <AddUpdateLoan />
+          <AddUpdateLoan onClose={() => {}} onSuccess={() => {}} />
         </Modal>
       )}
       <Button type="success" onClick={handleOpen}>

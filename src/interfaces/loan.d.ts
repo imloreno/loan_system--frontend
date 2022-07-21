@@ -1,7 +1,7 @@
 export interface ILoan {
   id_loan: number;
-  total: number;
-  without_interest: number;
+  total: number | string;
+  without_interest: number | string;
   interest: number;
   amount_paid: number;
   start_date: string;

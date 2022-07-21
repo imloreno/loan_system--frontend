@@ -9,7 +9,6 @@ type Props = {};
 const LoanList = (props: Props) => {
   const { loansList, refreshloans } = useLoan();
   const { guaranteesList, refreshGuarantees } = useGuarantee();
-  console.log(guaranteesList);
 
   useEffect(() => {
     (!loansList || loansList.length < 1) && refreshloans();
@@ -20,14 +19,18 @@ const LoanList = (props: Props) => {
   return (
     <>
       <StyledUl>
-        <LoanItem />
-        <LoanItem />
-        <LoanItem />
+        {loansList &&
+          loansList
+            .filter((loan) => loan.pending)
+            .map((loan, index) => <LoanItem key={index} />)}
       </StyledUl>
       <StyledUl>
-        <LoanItem pending={false} />
-        <LoanItem pending={false} />
-        <LoanItem pending={false} />
+        {loansList &&
+          loansList
+            .filter((loan) => !loan.pending)
+            .map((loan, index) => (
+              <LoanItem key={index} pending={loan.pending} />
+            ))}
       </StyledUl>
     </>
   );
